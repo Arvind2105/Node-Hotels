@@ -16,7 +16,7 @@ const addMenu = async (req, res) => {
     const newData = new Menu(data);
     const saveMenu = await newData.save();
     console.log('New Menu addeded to DB');
-    res.json(newMenu);
+    res.json(saveMenu);
   } catch (err) {
     res.status(500).json({ err: err.message });
   }

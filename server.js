@@ -2,9 +2,10 @@ import express from 'express';
 import db from './config/db.js';
 import personRoutes from './routes/personRoutes.js';
 import menuRoutes from './routes/menuRoutes.js';
+import 'dotenv/config';
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware to read JSON request body
 app.use(express.json());
@@ -13,7 +14,8 @@ app.use(express.json());
 app.use('/persons', personRoutes);
 app.use('/menu', menuRoutes);
 
+
 // Start server
-app.listen(port, () => {
-  console.log(`server is running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`server is running on port ${PORT}`);
 });
